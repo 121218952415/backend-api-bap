@@ -1,10 +1,10 @@
-const Note = require("../models/taskmodel.js");
+const task = require("../models/taskmodel.js");
 
 // Función para crear una nueva tarea
 const createnewtask = async (data) => {
   try {
     // Busca si ya existe una tarea  con el mismo título
-    let existingNote = await Note.findAll({ where: { titulo: data.titulo } });
+    let existingNote = await task.findAll({ where: { titulo: data.titulo } });
 
     // Verifica si el título está vacío
     if (data.titulo.length === 0) {
@@ -20,7 +20,7 @@ const createnewtask = async (data) => {
     }
     // Si no hay errores, crea una nueva nota
     else {
-      const newtask = await Note.create(data);
+      const newtask = await task.create(data);
       return newtask;
     }
   } catch (err) {

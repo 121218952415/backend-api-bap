@@ -1,4 +1,4 @@
-const Note = require("../models/taskmodel");
+const task = require("../models/taskmodel");
 
 // Definición de función asincrónica para obtener una tarea por su ID
 const bytaskid = async (req, res) => {
@@ -7,7 +7,7 @@ const bytaskid = async (req, res) => {
 
   try {
     // Buscar la tarea por su ID en la base de datos.
-    const foundTask = await Note.findByPk(id);
+    const foundTask = await task.findByPk(id);
 
     // Si se encontró la tarea, enviar una respuesta con el estado HTTP 200 y la tarea en formato JSON.
     res.status(200).json(foundTask);
