@@ -1,8 +1,8 @@
 const Router = require("express");
-const CreateNote = require("./createnote");
-// const taskid= require("./taskid")
+const CreateNote = require("./createtask");
+const idtask = require("./idtask");
 const router = Router();
 
 router.use("/createtasks", CreateNote); // ruta de creado de notas
-// router.use("/task/:taskId",taskid)
+router.use("/task", idtask); // buscamos tarea por id
 module.exports = router;

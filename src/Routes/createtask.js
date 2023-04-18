@@ -1,6 +1,6 @@
 
-const {createtask } = require("../middleware/middlewarecreatenote")
 const Router = require("express");
+const { createnewtask } = require("../Controllers/taskcreate");
 const router = Router();
 
 // Este es un endpoint POST que maneja las
@@ -13,7 +13,7 @@ router.post("/", async (req, res) => {
   try {
    // Enviamos la información a la función "createtarea" para
    // que la agregue a la base de datos
-    const newtask = await createtask(data);
+    const newtask = await createnewtask(data);
     // Enviamos la respuesta al cliente con el código de estado
     //201 que indica éxito en la creación y la nueva tarea  creada
     res.status(201).json(newtask);
