@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../db");
 
-const Note = sequelize.define("Note", {
+const task = sequelize.define("task", {
   id: {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
@@ -36,4 +36,4 @@ const Note = sequelize.define("Note", {
   timestamps: false
 });
 
-module.exports = Note;
+module.exports = task ;
