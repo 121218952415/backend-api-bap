@@ -25,7 +25,7 @@ const createnewtask = async (data) => {
     }
   } catch (err) {
     // Si ocurre un error, envía un mensaje de error
-    res.status(404).send(err.message);
+    throw new Error(err.message);
   }
 };
 

@@ -3,9 +3,19 @@ const Router = require("express");
 const { createnewtask } = require("../Controllers/taskcreate");
 const router = Router();
 
+
+// Middleware personalizado para validar la información de la tarea
+const validateTaskInfo = (req, res, next) => {
+  const { titulo, description } = req.body;
+  if (!titulo || !description) {
+    return res.status(400).send('The task does not have a title or description');
+  }
+  next();
+};
+
 // Este es un endpoint POST que maneja las
 // solicitudes de creación de nuevas tareas 
-router.post("/", async (req, res) => {
+router.post("/",validateTaskInfo, async (req, res) => {
   
   // Obtenemos la información de 
   //la nota desde el cuerpo de la solicitud

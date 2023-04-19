@@ -19,7 +19,7 @@ const editTask = async (id, data) => {
     }
   } catch (err) {
   // Devuelve un error HTTP 404 con el mensaje de error si ocurre un error
-    res.status(404).send(err.message);
+  throw new Error(err.message);
   }
 };
 

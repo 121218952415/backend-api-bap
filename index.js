@@ -30,4 +30,6 @@ startServer();
   } catch (error) {
     console.log("Authenticate has not been succesfull", error);
   }
-})();
+})(); 
+
+
